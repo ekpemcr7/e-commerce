@@ -1,12 +1,23 @@
-import React from "react";
-import CategoryContainer from "./components/category-menu/Category-menu";
-import { categories } from "./components/category-menu/Categories";
+import Home from "./routes/home/home.component";
+import { Routes, Route } from "react-router-dom";
+import Navigation from "./routes/navigation/navigation.component";
+
+const Shop = () => {
+  return (
+    <div>
+      <h1>Shop Page</h1>
+    </div>
+  );
+};
 
 const App = () => {
   return (
-    <>
-      <CategoryContainer categories={categories} />
-    </>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+      </Route>
+    </Routes>
   );
 };
 
